@@ -95,7 +95,7 @@ func (d *Dict) DelItem(key *Base) error {
 	return int2Err(ret)
 }
 
-// DelItem removes the entry with the key of "key" (or rather, with a *String
+// DelItemString removes the entry with the key of "key" (or rather, with a *String
 // with the value of "key" as the key) from the dictionary d.
 func (d *Dict) DelItemString(key string) error {
 	s := C.CString(key)

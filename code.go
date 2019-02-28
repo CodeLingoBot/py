@@ -90,7 +90,7 @@ func CompileFile(name string, start StartToken) (*Code, error) {
 	return newCode(ret), nil
 }
 
-// Return value: New reference.
+// Eval returns value: New reference.
 func (code *Code) Eval(globals, locals *Base) (*Base, error) {
 	pyCode := (*C.PyCodeObject)(unsafe.Pointer(code))
 	ret := C.PyEval_EvalCode(pyCode, globals.c(), locals.c())
@@ -118,7 +118,7 @@ func Run(text string) error {
 	return int2Err(ret)
 }
 
-// Return a dictionary of the builtins in the current execution frame, or the interpreter of
+// GetBuiltins returns a dictionary of the builtins in the current execution frame, or the interpreter of
 // the thread state if no frame is currently executing.
 //
 // Return value: Borrowed reference.
@@ -127,7 +127,7 @@ func GetBuiltins() *Base {
 	return newObject(ret)
 }
 
-// Return a dictionary of the global variables in the current execution frame,
+// GetLocals returns a dictionary of the global variables in the current execution frame,
 // or NULL if no frame is currently executing.
 //
 // Return value: Borrowed reference
@@ -136,7 +136,7 @@ func GetLocals() *Base {
 	return newObject(ret)
 }
 
-// Return a dictionary of the local variables in the current execution frame,
+// GetGlobals returns a dictionary of the local variables in the current execution frame,
 // or NULL if no frame is currently executing.
 //
 // Return value: Borrowed reference

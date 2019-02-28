@@ -107,7 +107,7 @@ func (obj *Base) GetAttr(name *Base) (*Base, error) {
 	return obj2ObjErr(ret)
 }
 
-// Retrieve an attribute named attr_name from object o. Returns the attribute value
+// GetAttrString retrieves an attribute named attr_name from object o. Returns the attribute value
 // on success, or NULL on failure. This is the equivalent to the Python "obj.name".
 //
 // Return value: New reference.
@@ -166,7 +166,7 @@ func (obj *Base) RichCompare(obj2 *Base, op Op) (*Base, error) {
 	return obj2ObjErr(ret)
 }
 
-// RichCompare compares "obj" with "obj2" using the specified operation (LE, GE
+// RichCompareBool compares "obj" with "obj2" using the specified operation (LE, GE
 // etc.), and returns true or false.  The equivalent Python is "obj op obj2",
 // where op is the corresponding Python operator for op.
 func (obj *Base) RichCompareBool(obj2 *Base, op Op) (bool, error) {

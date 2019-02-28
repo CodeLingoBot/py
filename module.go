@@ -67,13 +67,13 @@ func (mod *Module) CheckExact() bool {
 	return C.moduleCheckE(mod.c()) != 0
 }
 
-// Return value: Borrowed reference.
+// Dict returns value: Borrowed reference.
 func (mod *Module) Dict() *Dict {
 	ret := C.PyModule_GetDict(mod.c())
 	return newDict(ret)
 }
 
-// Return module‘s __name__ value. If the module does not provide one, or if it is not a string,
+// Name returns module‘s __name__ value. If the module does not provide one, or if it is not a string,
 // SystemError is raised and NULL is returned.
 func (mod *Module) Name() (string, error) {
 	ret := C.PyModule_GetName(mod.c())

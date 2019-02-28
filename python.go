@@ -67,7 +67,7 @@ func Main(args []string) int {
 	return int(C.Py_Main(C.int(len(argv)), &argv[0]))
 }
 
-// EnterRecusiveCall marks a point where a recursive Go-level call is about to
+// EnterRecursiveCall marks a point where a recursive Go-level call is about to
 // be performed.  It returns true if the recursive call is permitted, otherwise
 // a Python exception is set and false is returned.  where is a string that will
 // be appended to the RuntimeError set if the recursion limit has been exceeded
